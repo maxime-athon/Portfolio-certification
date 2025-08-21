@@ -1,0 +1,56 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+@import "tailwindcss";
+
+@layer base {
+
+  /* --- Variables de Couleur de notre projet --- */
+  :root {
+    --couleur-indigo: #4f46e5;
+    --couleur-violet: #8B5CF6;
+    --couleur-turquoise: #2dd4bf;
+    --couleur-blanc-doux: rgba(255, 255, 255, 0.8);
+
+    --couleur-fond: #121212; /* Un gris très foncé pour le fond principal */
+    --couleur-texte: #e5e7eb; /* Un blanc léger pour le texte */
+    --couleur-bordure-glasmorphism: rgba(255, 255, 255, 0.3);
+  }
+
+  /* --- Styles de Base pour la page (html & body) --- */
+  html {
+    font-family: 'Inter', sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    /* Utilise les variables CSS pour le fond et le texte */
+    @apply bg-[var(--couleur-fond)] text-[var(--couleur-texte)];
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* --- Styles par Défaut pour la Typographie --- */
+  h1, h2, h3, h4, h5, h6 {
+    /* Applique des classes Tailwind via @apply */
+    @apply font-bold text-white;
+  }
+
+  h1 { @apply text-4xl md:text-5xl; }
+  h2 { @apply text-3xl md:text-4xl; }
+  h3 { @apply text-2xl md:text-3xl; }
+
+  a {
+    @apply transition-colors duration-200;
+  }
+}
+
+@keyframes pulse-float {
+  0% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-10px) scale(1.1); }
+  100% { transform: translateY(0) scale(1); }
+}
+
+.animate-pulse-float {
+  animation: pulse-float 4s ease-in-out infinite;
+}
